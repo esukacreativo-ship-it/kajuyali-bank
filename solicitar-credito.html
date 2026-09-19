@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Escolar - Solicitar crédito</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+</head>
+<body class="pagina-dashboard">
+<header class="barra-superior">
+  <a href="dashboard.html" class="barra-logo-link">
+    <div class="barra-logo">
+      <img src="assets/logo.png" alt="Kajuyalí Bank">
+      <span>Kajuyalí Bank</span>
+    </div>
+  </a>
+    <button id="btnCerrarSesion" class="btn-naranja">Cerrar sesión</button>
+</header>
+
+  <main class="contenedor-dashboard">
+
+    <section class="tarjeta-saldo">
+      <p class="etiqueta">Cuenta de</p>
+      <p class="nombre-cuenta" id="nombreCuenta">-</p>
+      <p class="etiqueta">Saldo disponible</p>
+      <p class="monto" id="saldoActual">$0</p>
+    </section>
+
+    <h3 class="titulo-seccion">Solicitar crédito</h3>
+    
+    <form id="formSimular" class="tarjeta-form">
+      <label for="monto">¿Cuánto necesitas?</label>
+      <input type="text" id="monto" required inputmode="numeric" placeholder="Ej. 300.000">
+
+      <label for="cuotas">Número de cuotas (2 a 8 meses)</label>
+      <input type="number" id="cuotas" required min="2" max="8" placeholder="Ej. 6">
+
+      <button type="submit">Simular</button>
+      <p id="mensajeSimular" class="error"></p>
+    </form>
+
+    <section id="resultadoSimulacion" class="tarjeta-simulacion oculto">
+      <h3>Así quedaría tu crédito</h3>
+      <div class="fila-dato">
+        <span>Monto solicitado</span>
+        <span id="simMonto">-</span>
+      </div>
+      <div class="fila-dato">
+        <span>Número de cuotas</span>
+        <span id="simCuotas">-</span>
+      </div>
+      <div class="fila-dato">
+        <span>Tasa efectiva anual</span>
+        <span id="simTasa">-</span>
+      </div>
+      <div class="fila-dato destacado">
+        <span>Cuota mensual</span>
+        <span id="simCuotaMensual">-</span>
+      </div>
+      <div class="fila-dato">
+        <span>Total a pagar</span>
+        <span id="simTotal">-</span>
+      </div>
+      <div class="fila-dato">
+        <span>Intereses totales</span>
+        <span id="simIntereses">-</span>
+      </div>
+
+      <button id="btnConfirmar" class="btn-confirmar">Confirmar y recibir el dinero</button>
+      <p id="mensajeConfirmar" class="error"></p>
+    </section>
+  <a href="dashboard.html" class="btn-volver">← Volver al inicio</a>
+  </main>
+
+  <footer class="pie-pagina">
+  Aplicación desarrollada por <a href="https://www.instagram.com/esuka.creativo/" target="_blank" rel="noopener">Esuká Creativos</a> para uso didáctico de Kajuyalí School
+</footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/solicitar-credito.js"></script>
+</body>
+</html>

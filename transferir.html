@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Escolar - Enviar dinero</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+</head>
+<body class="pagina-dashboard">
+<header class="barra-superior">
+  <a href="dashboard.html" class="barra-logo-link">
+    <div class="barra-logo">
+      <img src="assets/logo.png" alt="Kajuyalí Bank">
+      <span>Kajuyalí Bank</span>
+    </div>
+  </a>
+    <button id="btnCerrarSesion" class="btn-naranja">Cerrar sesión</button>
+</header>
+
+  <main class="contenedor-dashboard">
+    <section class="tarjeta-saldo">
+      <p class="etiqueta">Cuenta de</p>
+      <p class="nombre-cuenta" id="nombreCuenta">-</p>
+      <p class="etiqueta">Saldo disponible</p>
+      <p class="monto" id="saldoActual">$0</p>
+    </section>
+
+    <h3 class="titulo-seccion">Enviar dinero</h3>
+
+    <form id="formTransferir" class="tarjeta-form">
+      <label for="destino">Usuario destinatario</label>
+      <input type="text" id="destino" required autocomplete="off" placeholder="ej. mgomez">
+
+      <label for="monto">Monto a enviar</label>
+      <input type="text" id="monto" required inputmode="numeric" placeholder="0">
+
+      <button type="submit">Enviar</button>
+      <p id="mensaje" class="error"></p>
+    </form>
+    <a href="dashboard.html" class="btn-volver">← Volver al inicio</a>
+  </main>
+
+  <footer class="pie-pagina">
+  Aplicación desarrollada por <a href="https://www.instagram.com/esuka.creativo/" target="_blank" rel="noopener">Esuká Creativos</a> para uso didáctico de Kajuyalí School
+</footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/transferir.js"></script>
+</body>
+</html>

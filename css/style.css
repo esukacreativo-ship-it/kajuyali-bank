@@ -1,0 +1,344 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --azul-oscuro: #003D4F;
+  --naranja: #FF8201;
+  --gris: #CCCCCC;
+  --gris-claro: #F5F5F5;
+  --texto: #222222;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--gris-claro);
+  min-height: 100vh;
+  color: var(--texto);
+}
+
+/* ===== LOGIN ===== */
+body.pagina-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-login {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.logo-login {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+}
+
+.contenedor-login h1 {
+  margin-bottom: 1.5rem;
+  color: var(--azul-oscuro);
+  font-size: 1.4rem;
+}
+
+.contenedor-login form { display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
+
+/* ===== BARRA SUPERIOR (todas las páginas internas) ===== */
+.barra-superior {
+  background: var(--azul-oscuro);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.barra-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.barra-logo img {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+}
+
+.barra-logo span {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.titulo-pagina {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-texto {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.btn-texto:hover { background: rgba(255,255,255,0.1); }
+
+/* ===== CONTENEDORES GENERALES ===== */
+.contenedor-dashboard {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0 1rem 2rem;
+}
+
+.titulo-seccion {
+  margin: 1.5rem 0 0.8rem;
+  color: var(--azul-oscuro);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ===== TARJETAS ===== */
+.tarjeta-saldo, .tarjeta-form, .tarjeta-simulacion, .movimiento {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border: 1px solid var(--gris);
+}
+
+.tarjeta-saldo {
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.nombre-cuenta {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  margin-bottom: 0.6rem;
+}
+
+.etiqueta { color: #666; font-size: 0.9rem; margin-top: 0.3rem; }
+
+.monto {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  margin: 0.3rem 0;
+}
+
+.aviso-estado {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--naranja);
+  font-weight: 600;
+}
+
+/* ===== GRID DE ACCIONES (dashboard) ===== */
+.grid-acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tarjeta-accion {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--azul-oscuro);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border: 1px solid var(--gris);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.15s;
+}
+
+.tarjeta-accion:hover { border-color: var(--naranja); }
+
+.tarjeta-accion .icono { font-size: 1.8rem; }
+
+.tarjeta-accion.deshabilitada {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== FORMULARIOS ===== */
+.tarjeta-form {
+  padding: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tarjeta-form label { font-size: 0.85rem; color: #444; margin-top: 0.6rem; font-weight: 600; }
+
+.tarjeta-form input,
+.tarjeta-form select,
+.contenedor-login input {
+  padding: 0.7rem;
+  border: 1px solid var(--gris);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.tarjeta-form input:focus,
+.tarjeta-form select:focus,
+.contenedor-login input:focus {
+  outline: none;
+  border-color: var(--naranja);
+}
+
+.tarjeta-form button,
+.contenedor-login button {
+  margin-top: 1.2rem;
+  padding: 0.8rem;
+  background: var(--naranja);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.tarjeta-form button:hover,
+.contenedor-login button:hover { opacity: 0.9; }
+
+.tarjeta-form button:disabled,
+.contenedor-login button:disabled { opacity: 0.5; cursor: default; }
+
+.error { color: #c0392b; margin-top: 0.8rem; text-align: center; font-size: 0.9rem; }
+
+/* ===== SIMULACIÓN DE CRÉDITO ===== */
+.oculto { display: none; }
+
+.tarjeta-simulacion { padding: 1.5rem; margin-top: 1.5rem; }
+
+.tarjeta-simulacion h3 { margin-bottom: 1rem; color: var(--azul-oscuro); font-size: 1rem; }
+
+.fila-dato {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--gris);
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.fila-dato.destacado {
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  font-size: 1.05rem;
+}
+
+.btn-confirmar {
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 0.9rem;
+  background: var(--azul-oscuro);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-confirmar:disabled { opacity: 0.5; cursor: default; }
+
+/* ===== HISTORIAL / MOVIMIENTOS ===== */
+.movimiento {
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.icono-movimiento { font-size: 1.4rem; }
+
+.detalle-movimiento { flex: 1; display: flex; flex-direction: column; }
+
+.etiqueta-movimiento { font-size: 0.9rem; color: var(--azul-oscuro); font-weight: 600; }
+
+.fecha-movimiento { font-size: 0.75rem; color: #999; }
+
+.monto-movimiento { font-weight: 700; font-size: 0.95rem; }
+
+.monto-movimiento.positivo { color: var(--naranja); }
+.monto-movimiento.negativo { color: var(--azul-oscuro); }
+
+/* ===== LOGO CLICKEABLE ===== */
+.barra-logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+/* ===== BOTÓN CERRAR SESIÓN (naranja) ===== */
+.btn-naranja {
+  background: var(--naranja);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.btn-naranja:hover { opacity: 0.9; }
+
+/* ===== BOTÓN VOLVER (al final del contenido) ===== */
+.btn-volver {
+  display: block;
+  text-align: center;
+  margin-top: 1.8rem;
+  padding: 0.9rem;
+  background: white;
+  border: 1px solid var(--azul-oscuro);
+  color: var(--azul-oscuro);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-volver:hover { background: var(--gris-claro); }
+
+/* ===== PIE DE PÁGINA ===== */
+.pie-pagina {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  padding: 1.5rem 1rem 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.pie-pagina a {
+  color: #999;
+  text-decoration: underline;
+}
+
+.pie-pagina a:hover { color: var(--azul-oscuro); }

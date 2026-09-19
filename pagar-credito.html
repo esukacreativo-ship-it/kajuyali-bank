@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Escolar - Mi crédito</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+</head>
+<body class="pagina-dashboard">
+<header class="barra-superior">
+  <a href="dashboard.html" class="barra-logo-link">
+    <div class="barra-logo">
+      <img src="assets/logo.png" alt="Kajuyalí Bank">
+      <span>Kajuyalí Bank</span>
+    </div>
+  </a>
+    <button id="btnCerrarSesion" class="btn-naranja">Cerrar sesión</button>
+</header>
+
+  <main class="contenedor-dashboard">
+    <p id="mensajeCarga" class="etiqueta">Cargando...</p>
+
+    <div id="sinCredito" class="tarjeta-saldo oculto">
+      <p class="etiqueta">No tienes ningún crédito vigente.</p>
+      <a href="solicitar-credito.html" class="btn-confirmar" style="display:block; text-align:center; text-decoration:none; margin-top:1rem;">
+        Solicitar un crédito
+      </a>
+      <a href="dashboard.html" class="btn-volver">← Volver al inicio</a>
+    </div>
+
+    <div id="conCredito" class="oculto">
+      <h3 class="titulo-seccion">Mi crédito</h3>
+      <section class="tarjeta-saldo">
+        <p class="etiqueta">Cuenta de</p>
+        <p class="nombre-cuenta" id="nombreCuenta">-</p>
+        <p class="etiqueta">Saldo pendiente</p>
+        <p class="monto" id="saldoPendiente">$0</p>
+        <p class="aviso-estado" id="avisoMora"></p>
+        <div class="fila-dato">
+          <span>Cuota mensual</span>
+          <span id="cuotaMensual">-</span>
+        </div>
+        <div class="fila-dato">
+          <span>Cuotas pagadas</span>
+          <span id="cuotasPagadas">-</span>
+        </div>
+        <div class="fila-dato destacado">
+        <span>Fecha de corte: </span>
+        <span id="fechaCorte">-</span>
+        </div>
+      </section>
+
+      <form id="formPagar" class="tarjeta-form">
+        <label for="monto">Monto a pagar (mínimo la cuota)</label>
+        <input type="text" id="monto" required inputmode="numeric" placeholder="0">
+
+        <button type="submit">Pagar</button>
+        <p id="mensaje" class="error"></p>
+      </form>
+      <a href="dashboard.html" class="btn-volver">← Volver al inicio</a>
+    </div>
+    
+  </main>
+
+  <footer class="pie-pagina">
+  Aplicación desarrollada por <a href="https://www.instagram.com/esuka.creativo/" target="_blank" rel="noopener">Esuká Creativos</a> para uso didáctico de Kajuyalí School
+</footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/pagar-credito.js"></script>
+</body>
+</html>
