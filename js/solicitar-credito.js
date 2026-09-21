@@ -2,6 +2,32 @@ const sesion = obtenerSesion();
 document.getElementById("nombreCuenta").textContent = sesion.nombre;
 document.getElementById("saldoActual").textContent = formatearMoneda(sesion.saldo);
 
+cargarLimites();
+
+async function cargarLimites() {
+  try {
+    const res = await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({ accion: "obtenerLimitesCredito" })
+    });
+    const data = await res.json();
+
+    if (data.ok) {
+      const inputCuotas = document.getElementById("cuotas");
+      inputCuotas.min = data.minCuotas;
+      inputCuotas.max = data.maxCuotas;
+      document.getElementById("labelCuotas").textContent =
+        `Número de cuotas (${data.minCuotas} a ${data.maxCuotas} meses)`;
+
+      document.getElementById("monto").placeholder = `Mínimo $${formatearConPuntos(String(data.montoMinimo))}`;
+    }
+  } catch (err) {
+    // Si falla, el formulario sigue funcionando; el backend igual valida los límites reales
+  }
+}
+
+
+
 const inputMonto = document.getElementById("monto");
 
 inputMonto.addEventListener("input", () => {
